@@ -9,7 +9,7 @@
   <!-- Footer -->
   <footer class="py-5 bg-dark">
     <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Damoa 2021</p>
+      <p class="m-0 text-center text-white">Copyright &copy; Damoa Computer Mall 2021</p>
     </div>
   </footer>
   <!-- Footer -->
