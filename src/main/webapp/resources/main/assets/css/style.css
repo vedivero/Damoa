@@ -573,9 +573,9 @@ p-0{
     padding-bottom: 5rem;
 }
 
-.p-top-80 {
-    padding-top: 5.714rem;
-}
+/* .p-top-80 { */
+/*     padding-top: 5.714rem; */
+/* } */
 
 .p-bottom-80 {
     padding-bottom: 5.714rem;
@@ -1213,7 +1213,7 @@ work Section style
     color:#00a885;
 }
 .action-lage{
-    position: relative;
+/*     position: relative; */
     width:100%;
 
 }
