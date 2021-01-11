@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/")
 public class MemberController {
 
-	@RequestMapping(value="/loginForm", method=RequestMethod.GET)
+	@RequestMapping(value="/join")
 	public String loginPage(){
 		
-		return "loginForm";
+		return "/Member/joinForm";
 	}
 	
 }
