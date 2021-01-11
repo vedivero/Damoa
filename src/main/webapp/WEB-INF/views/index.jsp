@@ -134,11 +134,9 @@
                     <div class="collapse navbar-collapse" id="navbar-menu">
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="#home">Home</a></li>                    
-                            <li><a href="#features">About</a></li>
-                            <li><a href="#business">Service</a></li>
-                            <li><a href="#work">Portfolio</a></li>
-                            <li><a href="#test">Blog</a></li>
-                            <li><a href="#contact">Contact</a></li>
+                            <li><a href="#features">PC견적</a></li>
+                            <li><a href="#test">중고장터</a></li>
+                            <li><a href="#contact">고객센터</a></li>
                         </ul>
                     </div><!-- /.navbar-collapse -->
                 </div> 
@@ -761,19 +759,14 @@
                 <div class="main_footer fix bg-mega text-center p-top-40 p-bottom-30 m-top-80">
                     <div class="col-md-12">
                         <p class="wow fadeInRight" data-wow-duration="1s">
-                            Made with 
+                            Made with by
                             <i class="fa fa-heart"></i>
-                            by 
-                            <a target="_blank" href="http://bootstrapthemes.co">Bootstrap Themes</a> 
-                            2016. All Rights Reserved
+                            <a target="_blank" href="https://github.com/vedivero">vedivero</a> 
+                            2021. All Rights Reserved
                         </p>
                     </div>
                 </div>
             </footer>
-
-
-
-
         </div>
 
         <!-- JS includes -->

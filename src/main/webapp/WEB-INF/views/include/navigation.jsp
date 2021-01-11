@@ -23,7 +23,8 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">로그인 | 회원가입</a>
+            <a class="nav-link" href="/loginForm">로그인</a>
+            <a class="nav-link" href="#">회원가입</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">내 정보</a>
