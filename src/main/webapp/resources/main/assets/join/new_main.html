@@ -1,20 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Damoa : 회원가입</title>
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/main/assets/css/loginForm.css">
-	<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
-
-</head>
-<body>
+<html lnag="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>네이버 : 회원가입</title>
+        <link rel="stylesheet" href="new_main.css">
+        
+    </head>
+    <body>
         <!-- header -->
         <div id="header">
-            <a href="/index" target="_blank" title="네이버 회원가입 페이지 보러가기">
-            	<img src="${pageContext.request.contextPath}/resources/main/assets/join/logo.png" id="logo">
-            </a>
+            <a href="https://nid.naver.com/user2/V2Join.nhn?m=agree#agreeBottom" target="_blank" title="네이버 회원가입 페이지 보러가기"><img src="NAVER_CI_Green.png" id="logo"></a>
         </div>
 
 
@@ -31,7 +26,7 @@
                     </h3>
                     <span class="box int_id">
                         <input type="text" id="id" class="int" maxlength="20">
-                        <span class="step_url"></span>
+                        <span class="step_url">@naver.com</span>
                     </span>
                     <span class="error_next_box"></span>
                 </div>
@@ -42,7 +37,7 @@
                     <span class="box int_pass">
                         <input type="text" id="pswd1" class="int" maxlength="20">
                         <span id="alertTxt">사용불가</span>
-                        <img src="${pageContext.request.contextPath}/resources/main/assets/join/m_icon_pass.png" id="pswd1_img1" class="pswdImg">
+                        <img src="m_icon_pass.png" id="pswd1_img1" class="pswdImg">
                     </span>
                     <span class="error_next_box"></span>
                 </div>
@@ -52,7 +47,7 @@
                     <h3 class="join_title"><label for="pswd2">비밀번호 재확인</label></h3>
                     <span class="box int_pass_check">
                         <input type="text" id="pswd2" class="int" maxlength="20">
-                        <img src="${pageContext.request.contextPath}/resources/main/assets/join/m_icon_check_disable.png" id="pswd2_img1" class="pswdImg">
+                        <img src="m_icon_check_disable.png" id="pswd2_img1" class="pswdImg">
                     </span>
                     <span class="error_next_box"></span>
                 </div>
@@ -125,7 +120,7 @@
 
                 <!-- EMAIL -->
                 <div>
-                    <h3 class="join_title"><label for="email">이메일<span class="optional"></span></label></h3>
+                    <h3 class="join_title"><label for="email">본인확인 이메일<span class="optional">(선택)</span></label></h3>
                     <span class="box int_email">
                         <input type="text" id="email" class="int" maxlength="100" placeholder="선택입력">
                     </span>
@@ -145,9 +140,10 @@
                 <!-- JOIN BTN-->
                 <div class="btn_area">
                     <button type="button" id="btnJoin">
-                        <span><b>가입하기</b></span>
+                        <span>가입하기</span>
                     </button>
                 </div>
+
                 
 
             </div> 
@@ -155,6 +151,6 @@
 
         </div> 
         <!-- wrapper -->
-    <script src="${pageContext.request.contextPath}/resources/main/assets/join/main.js"></script>
+    <script src="main.js"></script>
     </body>
 </html>
