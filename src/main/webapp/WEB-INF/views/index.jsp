@@ -83,7 +83,7 @@
                                 <div class="navbar-socail text-right sm-text-center">
                                     <ul class="list-inline">
                                         <li><a href="">로그인</a></li>
-                                        <li><a href="/join">회원가입</a></li>
+                                        <li><a href="/member/joinForm">회원가입</a></li>
 <!--                                         <li><a href=""><i cass="fa fa-facebook"></i></a></li> -->
 <!--                                         <li><a href=""><i class="fa fa-twitter"></i></a></li> -->
 <!--                                         <li><a href=""><i class="fa fa-linkedin"></i></a></li> -->

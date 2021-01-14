@@ -24,7 +24,7 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">로그인</a>
-            <a class="nav-link" href="/join">회원가입</a>
+            <a class="nav-link" href="/member/joinForm">회원가입</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">내 정보</a>

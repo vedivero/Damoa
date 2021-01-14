@@ -2,14 +2,19 @@ package com.damoa.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/member/*")
 public class MemberController {
 
-	@RequestMapping(value="/join")
-	public String loginPage(){
+	@RequestMapping(value="/member/joinForm")
+	public String joinForm(){
 		return "/Member/joinForm";
 	}
 	
+	@RequestMapping(value = "/member/join", method=RequestMethod.POST)
+	public String joinMember() {
+		return "redirect:/index";
+	}
 }
