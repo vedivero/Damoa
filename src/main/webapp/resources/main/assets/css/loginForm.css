@@ -6,7 +6,8 @@ html {
 body {
     margin: 0;
     height: 100%;
-    background: #f5f6f7;
+/*  default  background: #f5f6f7; */
+	background: #ffffff;
     font-family: Dotum,'돋움',Helvetica,sans-serif;
 }
 #logo {
@@ -56,6 +57,8 @@ h3 {
     position: relative;
 }
 
+
+
 .int {
     display: block;
     position: relative;
@@ -64,6 +67,15 @@ h3 {
     border: none;
     background: #fff;
     font-size: 15px;
+}
+
+.intZip{
+    width: 70%;
+    height: 29px;
+    border: none;
+    background: #fff;
+    font-size: 15px;
+    margin-bottom: 50px;
 }
 
 input {
@@ -100,6 +112,13 @@ input {
     right: 16px;
     margin-top: -10px;
     cursor: pointer;
+}
+
+.addrButton{
+	background-color: white;
+	padding: 10px;
+	margin-bottom: 90px;
+	width:110px;
 }
 
 #bir_wrap {

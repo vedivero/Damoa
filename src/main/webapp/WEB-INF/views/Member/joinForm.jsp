@@ -135,17 +135,32 @@
                 <div>
                     <h3 class="join_title"><label for="email">주소<span class="optional"></span></label></h3>
                     <span class="box int_email">
-                        <input type="text" id="addr" class="int" maxlength="100" placeholder="우편번호">
-                        <input type="button" class="int" onclick="addrNumber()" value="우편번호 찾기">
-                    </span>
+                        <input type="text" id="zipcode" class="intZip" maxlength="10"  width="60px" readonly="readonly">
+                        <input type="button" class="addrButton" onclick="searchPostal()" value="우편번호" >
+                    <span class="error_next_box"></span>    
+                </div>
+                <br>
+
+                <div>
+<!--                     <h3 class="join_title"><label for="email">주소<span class="optional"></span></label></h3> -->
+                    <span class="box int_email">
+                        <input type="text" id="baseAddr" name="addr1" class="int" maxlength="100" width="60px">
+                    <span class="error_next_box"></span>    
+                </div>
+                <br>
+                <div>
+<!--                     <h3 class="join_title"><label for="email">주소<span class="optional"></span></label></h3> -->
+                    <span class="box int_email">
+                        <input type="text" id="datailAddr" name="addr2" class="int" maxlength="100" placeholder="상세주소" width="60px">
                     <span class="error_next_box"></span>    
                 </div>
 
+                        <input type="hidden" id="extraAddress" name="addr2" class="int" maxlength="100" placeholder="상세주소" width="60px">
                 <!-- MOBILE -->
                 <div>
                     <h3 class="join_title"><label for="phoneNo">휴대전화</label></h3>
                     <span class="box int_mobile">
-                        <input type="tel" id="mobile" name="phone" class="int" maxlength="11" placeholder="전화번호 입력(-없이)">
+                        <input type="tel" id="mobile" name="phone" class="int" maxlength="11" placeholder="전화번호 (-없이)입력">
                     </span>
                     <span class="error_next_box"></span>    
                 </div>

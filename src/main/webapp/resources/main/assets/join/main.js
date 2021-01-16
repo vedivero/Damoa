@@ -204,7 +204,8 @@ function checkPhoneNum() {
     
 }
 
-function sample4_execDaumPostcode() {
+
+function searchPostal(){
     new daum.Postcode({
         oncomplete: function(data) {
             // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
@@ -228,16 +229,18 @@ function sample4_execDaumPostcode() {
                 extraRoadAddr = ' (' + extraRoadAddr + ')';
             }
 
-            // 우편번호와 주소 정보를 해당 필드에 넣는다.
-            document.getElementById('sample4_postcode').value = data.zonecode;
-            document.getElementById("sample4_roadAddress").value = roadAddr;
-            document.getElementById("sample4_jibunAddress").value = data.jibunAddress;
+            //우편번호
+            document.getElementById('zipcode').value = data.zonecode;
+            //기본주소
+            document.getElementById("baseAddr").value = roadAddr;
+            //상세주소
+            document.getElementById("detailAddr").value = data.jibunAddress;
             
             // 참고항목 문자열이 있을 경우 해당 필드에 넣는다.
             if(roadAddr !== ''){
-                document.getElementById("sample4_extraAddress").value = extraRoadAddr;
+                document.getElementById("extraAddress").value = extraRoadAddr;
             } else {
-                document.getElementById("sample4_extraAddress").value = '';
+                document.getElementById("extraAddress").value = '';
             }
 
             var guideTextBox = document.getElementById("guide");
@@ -255,15 +258,6 @@ function sample4_execDaumPostcode() {
                 guideTextBox.innerHTML = '';
                 guideTextBox.style.display = 'none';
             }
-        }
-    }).open();
-}
-
-function addrNumber(){
-    new daum.Postcode({
-        oncomplete: function(data) {
-            // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분입니다.
-            // 예제를 참고하여 다양한 활용법을 확인해 보세요.
         }
     }).open();
 }
