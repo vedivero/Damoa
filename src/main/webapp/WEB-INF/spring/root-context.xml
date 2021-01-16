@@ -20,8 +20,21 @@
 		<property name="password" value="1234"></property>
 	</bean>
 	
+	<!-- SqlSessionFactory 객체 (Connection + MyBatis 객체연결 역할, DB해제는 못하고 Connection해제만 가능)-->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="dataSource" ref="dataSource" />
-		<property name="configLocation" value="classpath:/mybatis-config.xml"></property>
+        <property name="dataSource" ref="dataSource" />
+        <property name="configLocation" value="classpath:/mybatis-config.xml" />
+        <property name="mapperLocations" value="classpath:mappers/**/*Mapper.xml" /> 
+    </bean>
+	
+		<!-- SqlSesstionTemplate 객체 (DB연결/해제(pstmt, resultset포함 해제가능) 역할)-->
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache">
+		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>
+	
+	<!-- Connect Persistence package -->
+	<context:component-scan base-package="com.damoa.persistence" />
+	
+	<!-- Connect Service Package  -->
+	<context:component-scan base-package="com.damoa.service" />
 </beans>

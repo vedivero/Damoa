@@ -82,7 +82,7 @@ function checkPw() {
         pwImg1.src = "/resources/main/assets/join/m_icon_not_use.png";
     } else {
         error[1].style.display = "none";
-        pwMsg.innerHTML = "안전";
+        pwMsg.innerHTML = "사용 가능";
         pwMsgArea.style.paddingRight = "93px";
         pwMsg.style.color = "#03c75a";
         pwMsg.style.display = "block";
@@ -93,6 +93,7 @@ function checkPw() {
 function comparePw() {
     if(pw2.value === pw1.value && pw2.value != "") {
         pwImg2.src = "/resources/main/assets/join/m_icon_check_enable.png";
+        error[1].innerHTML = "비밀번호가 일치합니다.";
         error[2].style.display = "none";
     } else if(pw2.value !== pw1.value) {
         pwImg2.src = "/resources/main/assets/join/m_icon_check_disable.png";
@@ -234,7 +235,7 @@ function searchPostal(){
             //기본주소
             document.getElementById("baseAddr").value = roadAddr;
             //상세주소
-            document.getElementById("detailAddr").value = data.jibunAddress;
+            document.getElementById("jibunAddress").value = data.jibunAddress;
             
             // 참고항목 문자열이 있을 경우 해당 필드에 넣는다.
             if(roadAddr !== ''){
@@ -261,7 +262,6 @@ function searchPostal(){
         }
     }).open();
 }
-
 
 /*
 2월 : 윤년에는 29일까지, 평년에는 28일까지.

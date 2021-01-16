@@ -1,20 +1,33 @@
 package com.damoa.controller;
 
+import javax.inject.Inject;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.damoa.domain.MemberVO;
+import com.damoa.service.MemberService;
+
 @Controller
-@RequestMapping("/member/*")
+@RequestMapping(value = "/member/*")
 public class MemberController {
 
-	@RequestMapping(value="/member/joinForm")
+	@Inject
+	private MemberService service;
+	
+	private static final Logger l = LoggerFactory.getLogger(MemberController.class);
+	
+	@RequestMapping(value="/joinForm")
 	public String joinForm(){
-		return "/Member/joinForm";
+		return "/member/joinForm";
 	}
 	
-	@RequestMapping(value = "/member/join", method=RequestMethod.POST)
-	public String joinMember() {
+	@RequestMapping(value = "/join", method=RequestMethod.POST)
+	public String joinMember(MemberVO vo) {
+		service.joinMember(vo);
 		return "redirect:/index";
 	}
 }

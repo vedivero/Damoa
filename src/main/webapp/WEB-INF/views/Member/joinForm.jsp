@@ -22,7 +22,7 @@
 
             <!-- content-->
             <div id="content">
-				<form action="/member/join" method="post" accept-charset="UTF-8" name="joinFrom">
+				<form action="/member/join" method="post" accept-charset="UTF-8">
                 <!-- ID -->
                 <div>
                     <h3 class="join_title">
@@ -39,7 +39,7 @@
                 <div>
                     <h3 class="join_title"><label for="pswd1">비밀번호</label></h3>
                     <span class="box int_pass">
-                        <input type="password" id="pw" class="int" maxlength="20">
+                        <input type="password" id="pswd1" class="int" maxlength="20">
                         <span id="alertTxt">사용불가</span>
                         <img src="${pageContext.request.contextPath}/resources/main/assets/join/m_icon_pass.png" id="pswd1_img1" class="pswdImg">
                     </span>
@@ -109,11 +109,12 @@
                 <div>
 <!--                     <h3 class="join_title"><label for="email">주소<span class="optional"></span></label></h3> -->
                     <span class="box int_email">
-                        <input type="text" id="datailAddr" name="addr2" class="int" maxlength="100" placeholder="상세주소" width="60px">
+                        <input type="text" id="detailAddr" name="addr2" class="int" maxlength="100" placeholder="상세주소" width="60px">
                     </span>
                     <span class="error_next_box"></span>    
                 </div>
                         <input type="hidden" id="extraAddress">
+                        <input type="hidden" id="jibunAddress">
 
                 <!-- MOBILE -->
                 <div>
@@ -127,12 +128,10 @@
 
                 <!-- JOIN BTN-->
                 <div class="btn_area">
-                    <button type="submit" id="btnJoin" onclick="sumBirth()">
-                        <span><b>가입하기</b></span>
-                    </button>
+                    <input type="submit" id="btnJoin" value="가입하기">
+<!--                         <span><b>가입하기</b></span> -->
                 </div>
                 </form>
-
             </div> 
             <!-- content-->
 			
