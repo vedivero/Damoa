@@ -128,8 +128,8 @@
 
                 <!-- JOIN BTN-->
                 <div class="btn_area">
+					<!-- <span><b>가입하기</b></span> -->
                     <input type="submit" id="btnJoin" value="가입하기">
-<!--                         <span><b>가입하기</b></span> -->
                 </div>
                 </form>
             </div> 

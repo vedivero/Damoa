@@ -21,12 +21,12 @@ public class MemberController {
 	private static final Logger l = LoggerFactory.getLogger(MemberController.class);
 	
 	@RequestMapping(value="/joinForm")
-	public String joinForm(){
+	public String joinForm() throws Exception{
 		return "/member/joinForm";
 	}
 	
-	@RequestMapping(value = "/join", method=RequestMethod.POST)
-	public String joinMember(MemberVO vo) {
+	@RequestMapping(value = "/joinMember", method=RequestMethod.POST)
+	public String joinMember(MemberVO vo) throws Exception {
 		service.joinMember(vo);
 		return "redirect:/index";
 	}
