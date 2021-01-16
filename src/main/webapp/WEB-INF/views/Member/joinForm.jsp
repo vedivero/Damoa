@@ -39,7 +39,7 @@
                 <div>
                     <h3 class="join_title"><label for="pswd1">비밀번호</label></h3>
                     <span class="box int_pass">
-                        <input type="password" name="pw" id="pswd1" class="int" maxlength="20">
+                        <input type="password" id="pw" class="int" maxlength="20">
                         <span id="alertTxt">사용불가</span>
                         <img src="${pageContext.request.contextPath}/resources/main/assets/join/m_icon_pass.png" id="pswd1_img1" class="pswdImg">
                     </span>
@@ -60,63 +60,19 @@
                 <div>
                     <h3 class="join_title"><label for="name">이름</label></h3>
                     <span class="box int_name">
-                        <input type="text" id="name" name="name" class="int" maxlength="20">
+                        <input type="text" id="name" class="int" maxlength="20">
                     </span>
                     <span class="error_next_box"></span>
-                </div>
-
-                <!-- BIRTH -->
-                <div>
-                    <h3 class="join_title"><label for="yy">생년월일</label></h3>
-
-                    <div id="bir_wrap">
-                        <!-- BIRTH_YY -->
-                        <div id="bir_yy">
-                            <span class="box">
-                                <input type="text" id="yy" name="yy" class="int" maxlength="4" placeholder="년(4자)">
-                            </span>
-                        </div>
-
-                        <!-- BIRTH_MM -->
-                        <div id="bir_mm">
-                            <span class="box">
-                                <select id="mm" name="mm" class="sel">
-                                    <option>월</option>
-                                    <option value="01">1</option>
-                                    <option value="02">2</option>
-                                    <option value="03">3</option>
-                                    <option value="04">4</option>
-                                    <option value="05">5</option>
-                                    <option value="06">6</option>
-                                    <option value="07">7</option>
-                                    <option value="08">8</option>
-                                    <option value="09">9</option>                                    
-                                    <option value="10">10</option>
-                                    <option value="11">11</option>
-                                    <option value="12">12</option>
-                                </select>
-                            </span>
-                        </div>
-
-                        <!-- BIRTH_DD -->
-                        <div id="bir_dd">
-                            <span class="box">
-                                <input type="text" id="dd" name="dd" class="int" maxlength="2" placeholder="일">
-                            </span>
-                        </div>
-
-                    </div>
-                    <span class="error_next_box"></span>    
                 </div>
 
                 <!-- GENDER -->
                 <div>
                     <h3 class="join_title"><label for="gender">성별</label></h3>
                     <span class="box gender_code">
-                        <select id="gender" name="gender" class="sel">
+                        <select id="gender" class="sel">
                             <option>성별</option>
-                            <option value="M">남자</option>
-                            <option value="F">여자</option>
+                            <option value="male">남자</option>
+                            <option value="femal">여자</option>
                         </select>                            
                     </span>
                     <span class="error_next_box">필수 정보입니다.</span>
@@ -126,7 +82,7 @@
                 <div>
                     <h3 class="join_title"><label for="email">이메일<span class="optional"></span></label></h3>
                     <span class="box int_email">
-                        <input type="eamil" name="name" id="email" class="int" maxlength="40" placeholder="선택입력">
+                        <input type="email" id="email" class="int" maxlength="40" placeholder="선택입력">
                     </span>
                     <span class="error_next_box">이메일 주소를 다시 확인해주세요.</span>    
                 </div>
@@ -137,6 +93,7 @@
                     <span class="box int_email">
                         <input type="text" id="zipcode" class="intZip" maxlength="10"  width="60px" readonly="readonly">
                         <input type="button" class="addrButton" onclick="searchPostal()" value="우편번호" >
+                    </span>
                     <span class="error_next_box"></span>    
                 </div>
                 <br>
@@ -145,6 +102,7 @@
 <!--                     <h3 class="join_title"><label for="email">주소<span class="optional"></span></label></h3> -->
                     <span class="box int_email">
                         <input type="text" id="baseAddr" name="addr1" class="int" maxlength="100" width="60px">
+                    </span>
                     <span class="error_next_box"></span>    
                 </div>
                 <br>
@@ -152,15 +110,16 @@
 <!--                     <h3 class="join_title"><label for="email">주소<span class="optional"></span></label></h3> -->
                     <span class="box int_email">
                         <input type="text" id="datailAddr" name="addr2" class="int" maxlength="100" placeholder="상세주소" width="60px">
+                    </span>
                     <span class="error_next_box"></span>    
                 </div>
+                        <input type="hidden" id="extraAddress">
 
-                        <input type="hidden" id="extraAddress" name="addr2" class="int" maxlength="100" placeholder="상세주소" width="60px">
                 <!-- MOBILE -->
                 <div>
                     <h3 class="join_title"><label for="phoneNo">휴대전화</label></h3>
                     <span class="box int_mobile">
-                        <input type="tel" id="mobile" name="phone" class="int" maxlength="11" placeholder="전화번호 (-없이)입력">
+                        <input type="tel" id="mobile" name="phone" class="int" maxlength="11" placeholder=" - 없이 입력">
                     </span>
                     <span class="error_next_box"></span>    
                 </div>
@@ -168,7 +127,7 @@
 
                 <!-- JOIN BTN-->
                 <div class="btn_area">
-                    <button type="submit" id="btnJoin">
+                    <button type="submit" id="btnJoin" onclick="sumBirth()">
                         <span><b>가입하기</b></span>
                     </button>
                 </div>

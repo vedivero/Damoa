@@ -262,6 +262,7 @@ function searchPostal(){
     }).open();
 }
 
+
 /*
 2월 : 윤년에는 29일까지, 평년에는 28일까지.
 1,3,5,7, 8,10,12 -> 31일
@@ -331,7 +332,7 @@ function checkPw() {
         pwImg1.src = "/resources/main/assets/join/m_icon_not_use.png";
     } else {
         error[1].style.display = "none";
-        pwMsg.innerHTML = "안전";
+        pwMsg.innerHTML = "사용가능";
         pwMsgArea.style.paddingRight = "93px";
         pwMsg.style.color = "#03c75a";
         pwMsg.style.display = "block";
