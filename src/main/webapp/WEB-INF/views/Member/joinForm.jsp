@@ -39,7 +39,7 @@
                 <div>
                     <h3 class="join_title"><label for="pswd1">비밀번호</label></h3>
                     <span class="box int_pass">
-                        <input type="password" id="pswd1" class="int" maxlength="20">
+                        <input type="password" id="pswd1" name="pw" class="int" maxlength="20">
                         <span id="alertTxt">사용불가</span>
                         <img src="${pageContext.request.contextPath}/resources/main/assets/join/m_icon_pass.png" id="pswd1_img1" class="pswdImg">
                     </span>
@@ -60,7 +60,7 @@
                 <div>
                     <h3 class="join_title"><label for="name">이름</label></h3>
                     <span class="box int_name">
-                        <input type="text" id="name" class="int" maxlength="20">
+                        <input type="text" id="name" name="name" class="int" maxlength="20">
                     </span>
                     <span class="error_next_box"></span>
                 </div>
@@ -69,7 +69,7 @@
                 <div>
                     <h3 class="join_title"><label for="gender">성별</label></h3>
                     <span class="box gender_code">
-                        <select id="gender" class="sel">
+                        <select id="gender" name="gender" class="sel">
                             <option>성별</option>
                             <option value="male">남자</option>
                             <option value="femal">여자</option>
@@ -82,7 +82,7 @@
                 <div>
                     <h3 class="join_title"><label for="email">이메일<span class="optional"></span></label></h3>
                     <span class="box int_email">
-                        <input type="email" id="email" class="int" maxlength="40" placeholder="선택입력">
+                        <input type="email" id="email" name="email" class="int" maxlength="40" placeholder="선택입력">
                     </span>
                     <span class="error_next_box">이메일 주소를 다시 확인해주세요.</span>    
                 </div>

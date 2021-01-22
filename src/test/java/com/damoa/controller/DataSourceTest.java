@@ -17,6 +17,7 @@ public class DataSourceTest {
 		@Inject
 		private DataSource ds;
 		
+		//DB연결 Test
 		@Test
 		public void testConnection()throws Exception{
 			try(Connection con = ds.getConnection()) {
@@ -26,5 +27,3 @@ public class DataSourceTest {
 			}
 		}
 	}
-
-

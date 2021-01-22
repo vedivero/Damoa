@@ -20,14 +20,17 @@ public class MemberController {
 	
 	private static final Logger l = LoggerFactory.getLogger(MemberController.class);
 	
-	@RequestMapping(value="/joinForm")
-	public String joinForm() throws Exception{
-		return "/member/joinForm";
+	//회원가입 입력 폼
+	@RequestMapping(value = "/joinForm" ,method = RequestMethod.GET)
+	public String joinForm() {
+		l.info("Controller : joinForm호출");
+		return "member/joinForm";
 	}
-	
-	@RequestMapping(value = "/joinMember", method=RequestMethod.POST)
-	public String joinMember(MemberVO vo) throws Exception {
+
+	//회원가입
+	@RequestMapping(value = "/join" ,method = RequestMethod.POST)
+	public void join(MemberVO vo) {
+		l.info("Controller:join()호출");
 		service.joinMember(vo);
-		return "redirect:/index";
 	}
 }

@@ -2,13 +2,14 @@ package com.damoa.domain;
 
 import java.sql.Timestamp;
 
+import org.springframework.stereotype.Repository;
+
+@Repository
 public class MemberVO {
 
-	private int m_no;
 	private String id;
 	private String pw;
 	private String name;
-	private String birth;
 	private String gender;
 	private String email;
 	private String phone;
@@ -16,8 +17,11 @@ public class MemberVO {
 	private String addr2;
 	private Timestamp reg_date;
 	
-	public MemberVO(String id,String pw,String name,String gender,
-			String email,String phone,String addr1,String addr2, Timestamp reg_date) {
+	public MemberVO() {
+		
+	}
+	
+	public MemberVO(String id,String pw,String name,String gender,String email,String phone,String addr1,String add2, String addr2,Timestamp reg_date) {
 		super();
 		this.id = id;
 		this.pw = pw;
@@ -29,6 +33,7 @@ public class MemberVO {
 		this.addr2 = addr2;
 		this.reg_date = reg_date;
 	}
+	
 	public String getId() {
 		return id;
 	}
@@ -65,19 +70,29 @@ public class MemberVO {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
+	public String getAddr1() {
+		return addr1;
+	}
+	public void setAddr1(String addr1) {
+		this.addr1 = addr1;
+	}
+	public String getAddr2() {
+		return addr2;
+	}
+	public void setAddr2(String addr2) {
+		this.addr2 = addr2;
+	}
 	public Timestamp getReg_date() {
 		return reg_date;
 	}
 	public void setReg_date(Timestamp reg_date) {
 		this.reg_date = reg_date;
 	}
-	
 	@Override
 	public String toString() {
-		return "MemberVO [id=" + id + ", pw=" + pw + ", name=" + name
-				+ ", gender=" + gender + ", email=" + email + ", phone=" + phone + ", reg_date=" + reg_date + "]";
+		return "MemberVO [id=" + id + ", pw=" + pw + ", name=" + name + ", gender=" + gender + ", email=" + email
+				+ ", phone=" + phone + ", addr1=" + addr1 + ", addr2=" + addr2 + ", reg_date=" + reg_date + "]";
 	}
-	
 	
 	
 }

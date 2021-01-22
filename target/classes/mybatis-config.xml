@@ -6,5 +6,7 @@
 	<typeAliases>
 		<package name="com.damoa.domain"/>
 	</typeAliases>
+	<mappers>
+		<mapper resource="mappers/memberMapper.xml"/>
+	</mappers>
 </configuration>
-
