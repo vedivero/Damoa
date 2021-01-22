@@ -11,7 +11,7 @@
 <body>
         <!-- header -->
         <div id="header">
-            <a href="/index" target="_blank" title="네이버 회원가입 페이지 보러가기">
+            <a href="/main" target="_blank" title="홈페이지로">
             	<img src="${pageContext.request.contextPath}/resources/main/assets/join/logo.png" id="logo">
             </a>
         </div>

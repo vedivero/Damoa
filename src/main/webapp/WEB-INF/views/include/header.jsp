@@ -45,7 +45,7 @@
                             <div class="col-md-6">
                                 <div class="navbar-socail text-right sm-text-center">
                                     <ul class="list-inline">
-                                        <li><a href="">로그인</a></li>
+                                        <li><a href="/member/login">로그인</a></li>
                                         <li><a href="/member/joinForm">회원가입</a></li>
                                     </ul>
                                 </div>

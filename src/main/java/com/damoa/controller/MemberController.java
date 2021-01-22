@@ -27,6 +27,14 @@ public class MemberController {
 		return "member/joinForm";
 	}
 
+	//로그인
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String login() {
+		
+		l.info("Controller:login()호출");
+		return "member/login";
+	}
+	
 	//회원가입
 	@RequestMapping(value = "/join" ,method = RequestMethod.POST)
 	public void join(MemberVO vo) {
