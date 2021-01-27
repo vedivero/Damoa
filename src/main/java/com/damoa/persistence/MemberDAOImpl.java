@@ -1,6 +1,9 @@
 package com.damoa.persistence;
 
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.inject.Inject;
 import javax.sql.DataSource;
 
@@ -25,5 +28,15 @@ public class MemberDAOImpl implements MemberDAO{
 		session.insert(namespace+".joinMember", vo);
 	}
 
+	//로그인 처리
+	@Override
+	public MemberVO checkMember(String id, String pw) throws Exception {
+		Map<String, String> paramMap = new HashMap<String, String>();
+				paramMap.put("id", id);
+				paramMap.put("pw", pw);
+		return session.selectOne(namespace+".checkMember",paramMap);
+	}
+
+	
 	
 }

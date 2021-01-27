@@ -45,8 +45,17 @@
                             <div class="col-md-6">
                                 <div class="navbar-socail text-right sm-text-center">
                                     <ul class="list-inline">
+                                    <%
+                                    String id =(String)session.getAttribute("id");
+                                    System.out.println("id :"+id);
+                                    if(id == null){
+                                    %>
                                         <li><a href="/member/login">로그인</a></li>
                                         <li><a href="/member/joinForm">회원가입</a></li>
+                                    <%}else{ %>
+                                        <li><a href="/member/logout">로그아웃</a></li>
+                                        <li><a href="">마이페이지</a></li>
+									<% } %>          
                                     </ul>
                                 </div>
                             </div>

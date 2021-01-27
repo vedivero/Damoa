@@ -92,7 +92,7 @@
                     <h3 class="join_title"><label for="email">주소<span class="optional"></span></label></h3>
                     <span class="box int_email">
                         <input type="text" id="zipcode" class="intZip" maxlength="10"  width="60px" readonly="readonly">
-                        <input type="button" class="addrButton" onclick="searchPostal()" value="우편번호" >
+                        <input type="button" class="addrButton" onclick="searchPostal()" value="우편번호 검색" >
                     </span>
                     <span class="error_next_box"></span>    
                 </div>

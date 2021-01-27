@@ -16,9 +16,24 @@ public class MemberServiceImpl implements MemberService{
 	
 	//회원가입
 	@Override
-	public void joinMember(MemberVO vo) {
+	public void joinMember(MemberVO vo) throws Exception {
 		mdao.joinMember(vo);
 	}
 
+	//로그인 처리
+	@Override
+	public MemberVO loginProc(MemberVO vo) {
+
+		MemberVO loginVO = null;
+		try {
+			loginVO = mdao.checkMember(vo.getId(),vo.getPw());
+		} catch (Exception e) {
+			e.printStackTrace();
+			loginVO = null;
+		}
+		return loginVO;
+	}
+
+	
 	
 }

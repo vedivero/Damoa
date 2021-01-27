@@ -18,15 +18,17 @@
 			</div>
 		</header>
 		<section class="login-input-section-wrap">
+			<form action="/member/loginProc" method="post">
 			<div class="login-input-wrap">	
-				<input placeholder="아이디" type="text"></input>
+				<input name="id" placeholder="아이디" type="text"></input>
 			</div>
 			<div class="login-input-wrap password-wrap">	
-				<input placeholder="패스워드" type="password"></input>
+				<input name="pw" placeholder="패스워드" type="password"></input>
 			</div>
 			<div class="login-button-wrap">
-				<button>로그인</button>
+				<button onclick="location.href='/member/loginProc'">로그인</button>
 			</div>
+			</form>
 			<div class="login-stay-sign-in">
 				<i class="far fa-check-circle"></i>
 				<span>로그인 정보 기억하기</span>

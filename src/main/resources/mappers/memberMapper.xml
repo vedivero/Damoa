@@ -11,4 +11,10 @@
 		values (#{id},#{pw},#{name},#{gender},#{email},#{phone},#{addr1},#{addr2},now())
 	</insert>
 	
+	<!-- 로그인 처리 -->
+	<select id="checkMember" resultType="com.damoa.domain.MemberVO">
+		select *
+		from member
+		where id=#{id} and pw=#{pw}
+	</select>
 </mapper>
