@@ -54,7 +54,7 @@
                                         <li><a href="/member/joinForm">회원가입</a></li>
                                     <%}else{ %>
                                         <li><a href="/member/logout">로그아웃</a></li>
-                                        <li><a href="">마이페이지</a></li>
+                                        <li><a href="/mypage">마이페이지</a></li>
 									<% } %>          
                                     </ul>
                                 </div>
@@ -88,7 +88,7 @@
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
                             <i class="fa fa-bars"></i>
                         </button>
-                        <a class="navbar-brand" href="#brand">
+                        <a class="navbar-brand" href="/main">
                             <img src="<c:url value='/resources/main/assets/images/logo.png" class="logo" alt=""'/>">
                             <img src="assets/images/footer-logo.png" class="logo logo-scrolled" alt="">
                         </a>
@@ -97,10 +97,10 @@
 					<!--navbar menu -->
                     <div class="collapse navbar-collapse" id="navbar-menu">
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="#home">Home</a></li>                    
+                            <li><a href="#home">관심상품</a></li>                    
                             <li><a href="#features">PC견적</a></li>
                             <li><a href="#test">중고장터</a></li>
-                            <li><a href="#contact">고객센터</a></li>
+                            <li><a href="#">고객센터</a></li>
                         </ul>
                     </div><!-- /.navbar-collapse -->
                 </div> 

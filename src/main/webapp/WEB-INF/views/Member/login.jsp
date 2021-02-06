@@ -41,7 +41,7 @@
 				<li><button><i class="fab fa-facebook-square"></i><span>Facebook</span></button></li>
 				<li><button><i class="fab fa-line"></i><span>line</span></button></li>
 			</ul>
-			<p class="forget-msg">비밀번호를 잃어버리셨나요? | 회원가입</p>
+			<p class="forget-msg">비밀번호를 잃어버리셨나요? | <a href="/member/joinForm" style="text-decoration:none">회원가입</a></p>
 		</section>
 		<footer>
 			<div class="copyright-wrap">

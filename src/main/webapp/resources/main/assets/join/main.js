@@ -1,4 +1,62 @@
+//회원가입 
 /*변수 선언*/
+
+function searchPostal(){
+    new daum.Postcode({
+        oncomplete: function(data) {
+            // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+            // 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
+            // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+            var roadAddr = data.roadAddress; // 도로명 주소 변수
+            var extraRoadAddr = ''; // 참고 항목 변수
+
+            // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+            // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+            if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                extraRoadAddr += data.bname;
+            }
+            // 건물명이 있고, 공동주택일 경우 추가한다.
+            if(data.buildingName !== '' && data.apartment === 'Y'){
+               extraRoadAddr += (extraRoadAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+            }
+            // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+            if(extraRoadAddr !== ''){
+                extraRoadAddr = ' (' + extraRoadAddr + ')';
+            }
+
+            //우편번호
+            document.getElementById('zipcode').value = data.zonecode;
+            //기본주소
+            document.getElementById("baseAddr").value = roadAddr;
+            //상세주소
+            document.getElementById("jibunAddress").value = data.jibunAddress;
+            
+            // 참고항목 문자열이 있을 경우 해당 필드에 넣는다.
+            if(roadAddr !== ''){
+                document.getElementById("extraAddress").value = extraRoadAddr;
+            } else {
+                document.getElementById("extraAddress").value = '';
+            }
+
+            var guideTextBox = document.getElementById("guide");
+            // 사용자가 '선택 안함'을 클릭한 경우, 예상 주소라는 표시를 해준다.
+            if(data.autoRoadAddress) {
+                var expRoadAddr = data.autoRoadAddress + extraRoadAddr;
+                guideTextBox.innerHTML = '(예상 도로명 주소 : ' + expRoadAddr + ')';
+                guideTextBox.style.display = 'block';
+
+            } else if(data.autoJibunAddress) {
+                var expJibunAddr = data.autoJibunAddress;
+                guideTextBox.innerHTML = '(예상 지번 주소 : ' + expJibunAddr + ')';
+                guideTextBox.style.display = 'block';
+            } else {
+                guideTextBox.innerHTML = '';
+                guideTextBox.style.display = 'none';
+            }
+        }
+    }).open();
+}
 
 var id = document.querySelector('#id');
 
@@ -12,10 +70,6 @@ var pwMsgArea = document.querySelector('.int_pass');
 
 var userName = document.querySelector('#name');
 
-var yy = document.querySelector('#yy');
-var mm = document.querySelector('#mm');
-var dd = document.querySelector('#dd');
-
 var gender = document.querySelector('#gender');
 
 var email = document.querySelector('#email');
@@ -24,7 +78,55 @@ var mobile = document.querySelector('#mobile');
 
 var error = document.querySelectorAll('.error_next_box');
 
+var addr1 = document.querySelector('#addr1');
+var addr2 = document.querySelector('#addr2');
 
+//회원가입 유효성 체크
+
+function joinValidation(){
+	
+	let f = document.joinForm;
+	let id = f.id.value;
+	let pw = f.pw.value;
+	let pw2 = f.pw2.value;
+	let name = f.name.value;
+	let gender = f.gender.value;
+	let email = f.email.value;
+	let addr1 = f.addr1.value;
+	let addr2 = f.addr2.value;
+	
+	if(!id){
+		alert("아이디를 입력해주세요");
+		$("#id").focus();
+	}else if(!pw){
+		alert("비밀번호를 입력해주세요");
+		$("#pswd1").focus();
+	}else if(!pw2){
+		alert("위와 동일한 비밀번호를 입력해주세요");
+		$("#pswd2").focus();
+	}else if(!name){
+		alert("이름을 입력해주세요");
+		$("#name").focus();	
+	}else if(gender==null){
+		alert("성별을 선택해주세요");
+		$("#gender").focus();
+	}else if(!email){
+		alert("이메일을 입력해주세요");
+		$("#email").focus();	
+	}else if(!addr1){
+		alert("주소를 입력해주세요");
+		$("#zipcode").focus();
+	}else if(!addr2){
+		alert("상세주소를 입력해주세요");	
+		$("#baseAddr").focus();
+	}else if(!mobile){
+		alert("휴대전화를 입력해주세요");
+		$("#mobile").focus();
+	}else{
+		alert("회원가입이 완료 되었습니다");
+		document.joinForm.submit();
+	}
+}
 
 /*이벤트 핸들러 연결*/
 
@@ -32,9 +134,6 @@ id.addEventListener("change", checkId);
 pw1.addEventListener("change", checkPw);
 pw2.addEventListener("change", comparePw);
 userName.addEventListener("change", checkName);
-yy.addEventListener("change", isBirthCompleted);
-mm.addEventListener("change", isBirthCompleted);
-dd.addEventListener("change", isBirthCompleted);
 gender.addEventListener("change", function() {
     if(gender.value === "성별") {
         error[5].style.display = "block";
@@ -121,60 +220,6 @@ function checkName() {
 }
 
 
-function isBirthCompleted() {
-    var yearPattern = /[0-9]{4}/;
-
-    if(!yearPattern.test(yy.value)) {
-        error[4].innerHTML = "태어난 년도 4자리를 정확하게 입력하세요.";
-        error[4].style.display = "block";
-    } else {
-        isMonthSelected();
-    }
-
-
-    function isMonthSelected() {
-        if(mm.value === "월") {
-            error[4].innerHTML = "태어난 월을 선택하세요.";
-        } else {
-            isDateCompleted();
-        }
-    }
-
-    function isDateCompleted() {
-        if(dd.value === "") {
-            error[4].innerHTML = "태어난 일(날짜) 2자리를 정확하게 입력하세요.";
-        } else {
-            isBirthRight();
-        }
-    }
-}
-
-
-
-function isBirthRight() {
-    var datePattern = /\d{1,2}/;
-    if(!datePattern.test(dd.value) || Number(dd.value)<1 || Number(dd.value)>31) {
-        error[4].innerHTML = "생년월일을 다시 확인해주세요.";
-    } else {
-        checkAge();
-    }
-}
-
-function checkAge() {
-    if(Number(yy.value) < 1920) {
-        error[4].innerHTML = "정말이세요?";
-        error[4].style.display = "block";
-    } else if(Number(yy.value) > 2020) {
-        error[4].innerHTML = "미래에서 오셨군요. ^^";
-        error[4].style.display = "block";
-    } else if(Number(yy.value) > 2005) {
-        error[4].innerHTML = "만 14세 미만의 어린이는 보호자 동의가 필요합니다.";
-        error[4].style.display = "block";
-    } else {
-        error[4].style.display = "none";
-    }
-}
-
 
 function isEmailCorrect() {
     var emailPattern = /[a-z0-9]{2,}@[a-z0-9-]{2,}\.[a-z0-9]{2,}/;
@@ -205,85 +250,10 @@ function checkPhoneNum() {
     
 }
 
-
-function searchPostal(){
-    new daum.Postcode({
-        oncomplete: function(data) {
-            // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
-
-            // 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
-            // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
-            var roadAddr = data.roadAddress; // 도로명 주소 변수
-            var extraRoadAddr = ''; // 참고 항목 변수
-
-            // 법정동명이 있을 경우 추가한다. (법정리는 제외)
-            // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
-            if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
-                extraRoadAddr += data.bname;
-            }
-            // 건물명이 있고, 공동주택일 경우 추가한다.
-            if(data.buildingName !== '' && data.apartment === 'Y'){
-               extraRoadAddr += (extraRoadAddr !== '' ? ', ' + data.buildingName : data.buildingName);
-            }
-            // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
-            if(extraRoadAddr !== ''){
-                extraRoadAddr = ' (' + extraRoadAddr + ')';
-            }
-
-            //우편번호
-            document.getElementById('zipcode').value = data.zonecode;
-            //기본주소
-            document.getElementById("baseAddr").value = roadAddr;
-            //상세주소
-            document.getElementById("jibunAddress").value = data.jibunAddress;
-            
-            // 참고항목 문자열이 있을 경우 해당 필드에 넣는다.
-            if(roadAddr !== ''){
-                document.getElementById("extraAddress").value = extraRoadAddr;
-            } else {
-                document.getElementById("extraAddress").value = '';
-            }
-
-            var guideTextBox = document.getElementById("guide");
-            // 사용자가 '선택 안함'을 클릭한 경우, 예상 주소라는 표시를 해준다.
-            if(data.autoRoadAddress) {
-                var expRoadAddr = data.autoRoadAddress + extraRoadAddr;
-                guideTextBox.innerHTML = '(예상 도로명 주소 : ' + expRoadAddr + ')';
-                guideTextBox.style.display = 'block';
-
-            } else if(data.autoJibunAddress) {
-                var expJibunAddr = data.autoJibunAddress;
-                guideTextBox.innerHTML = '(예상 지번 주소 : ' + expJibunAddr + ')';
-                guideTextBox.style.display = 'block';
-            } else {
-                guideTextBox.innerHTML = '';
-                guideTextBox.style.display = 'none';
-            }
-        }
-    }).open();
-}
-
-/*
-2월 : 윤년에는 29일까지, 평년에는 28일까지.
-1,3,5,7, 8,10,12 -> 31일
-2,4,6, 9,11 -> 30일
-*/
-
-var days31 = [1, 3, 5, 7, 8, 10, 12];
-var days30 = [4, 6, 9, 11];
-
-    if(mm.value )
-
-var sel = document.getElementById("sel");
-var val = sel.options[sel.selectedIndex].value;
-
 var id = document.querySelector('#id');
 var pw1 = document.querySelector('#pswd1');
 var pw2 = document.querySelector('#pswd2');
 var yourName = document.querySelector('#name');
-var yy = document.querySelector('#yy');
-var mm = document.querySelector('#mm');
-var dd = document.querySelector('#dd');
 var email = document.querySelector('#email');
 var mobile = document.querySelector('#mobile');
 var error = document.querySelectorAll('.error_next_box');
@@ -296,7 +266,6 @@ id.onchange = checkId;
 pw1.onchange = checkPw;
 pw2.onchange = comparePw;
 yourName.onchange = checkName;
-yy.onchange = checkYear;
 
 
 function checkId() {
@@ -332,7 +301,7 @@ function checkPw() {
         pwImg1.src = "/resources/main/assets/join/m_icon_not_use.png";
     } else {
         error[1].style.display = "none";
-        pwMsg.innerHTML = "사용가능";
+        pwMsg.innerHTML = "사용가능"; 	
         pwMsgArea.style.paddingRight = "93px";
         pwMsg.style.color = "#03c75a";
         pwMsg.style.display = "block";
@@ -369,59 +338,6 @@ function checkName() {
     }
 }
 
-
-function isBirthCompleted() {
-    var yearPattern = /[0-9]{4}/;
-
-    if(!yearPattern.test(yy.value)) {
-        error[4].innerHTML = "태어난 년도 4자리를 정확하게 입력하세요.";
-        error[4].style.display = "block";
-    } else {
-        isMonthSelected();
-    }
-
-
-    function isMonthSelected() {
-        if(mm.value === "월") {
-            error[4].innerHTML = "태어난 월을 선택하세요.";
-        } else {
-            isDateCompleted();
-        }
-    }
-
-    function isDateCompleted() {
-        if(dd.value === "") {
-            error[4].innerHTML = "태어난 일(날짜) 2자리를 정확하게 입력하세요.";
-        } else {
-            isBirthRight();
-        }
-    }
-}
-
-
-
-function isBirthRight() {
-    var datePattern = /\d{1,2}/;
-    if(!datePattern.test(dd.value) || Number(dd.value)<1 || Number(dd.value)>31) {
-        error[4].innerHTML = "생년월일을 다시 확인해주세요.";
-    } else {
-        checkAge();
-    }
-}
-
-function checkAge() {
-    if(Number(yy.value) < 1920) {
-        error[4].innerHTML = "정말이세요?";
-    } else if(Number(yy.value) > 2019) {
-        error[4].innerHTML = "미래에서 오셨군요. ^^";
-    } else if(Number(yy.value) > 2005) {
-        error[4].innerHTML = "만 14세 미만의 어린이는 보호자 동의가 필요합니다.";
-    } else {
-        error[4].style.display = "none";
-    }
-}
-
-
 function isEmailCorrect() {
     var emailPattern = /[a-z0-9]{2,}@[a-z0-9-]{2,}\.[a-z0-9]{2,}/;
 
@@ -449,4 +365,3 @@ function checkPhoneNum() {
     }
 
 }
-

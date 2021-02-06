@@ -7,21 +7,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-public class HomeController {
-	
-	private static final Logger l = LoggerFactory.getLogger(HomeController.class);
-	
-	
-	@RequestMapping("/main")
-	public String main() {
-		l.info("HomeController : call main page");
-		return "main";
-	}
+@RequestMapping(value = "/service/*")
+public class ServiceController {
+
+	private static final Logger l = LoggerFactory.getLogger(ServiceController.class);
 	
 	//마이페이지
 	@RequestMapping(value = "/mypage", method = RequestMethod.GET)
 	public String serviceMain() {
-		l.info("HomeController : call mypage");
-		return "mypage";
+		l.info("ServiceController : call service main page");
+		return "/service/mypage";
 	}
 }

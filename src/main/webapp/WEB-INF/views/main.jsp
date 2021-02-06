@@ -1,10 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<html>
     <head>
         <meta charset="utf-8">
         <title>No.1 컴퓨터 쇼핑몰</title>
@@ -28,7 +25,7 @@
         </div><!--End off Preloader -->
 
 		<!-- Navigation -->
-		<jsp:include page="./include/header.jsp"></jsp:include>
+		<jsp:include page="./include/header.jsp"/>
 
 
             <!--Home Sections-->
@@ -363,7 +360,7 @@
             </section><!-- End off Product section -->
 
 		<!-- Footer -->
-		<jsp:include page="./include/footer.jsp"></jsp:include>
+		<jsp:include page="./include/footer.jsp"/>
 		<!-- Footer -->
 
         <!-- JS includes -->
@@ -378,7 +375,7 @@
         <script src='<c:url value="/resources/main/assets/css/slick/slick.min.js"/>'></script>
         <script src='<c:url value="/resources/main/assets/js/jquery.collapse.js"/>'></script>
         <script src='<c:url value="/resources/main/assets/js/bootsnav.js"/>'></script>
-        <script src='<c:url value="resources/main/assets/js/plugins.js"/>'></script>
+        <script src='<c:url value="/resources/main/assets/js/plugins.js"/>'></script>
         <script src='<c:url value="/resources/main/assets/js/main.js"/>'></script>
 
     </body>

@@ -41,12 +41,12 @@ public class MemberController {
 	
 	//회원가입
 	@RequestMapping(value = "/join" ,method = RequestMethod.POST)
-	public void join(MemberVO vo)throws Exception {
+	public String join(MemberVO vo)throws Exception {
 		l.info("Controller : join()호출");
 		service.joinMember(vo);
+		l.info("MemberController : 회원가입 처리완료");
+		return "member/login";
 	}
-	
-	
 	
 	//로그인 처리
 	@RequestMapping(value = "loginProc",method = RequestMethod.GET)
@@ -76,5 +76,6 @@ public class MemberController {
 		session.invalidate();
 		return "redirect:/main";
 	}
+	
 }
 

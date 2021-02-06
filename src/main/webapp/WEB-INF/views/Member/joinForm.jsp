@@ -22,7 +22,7 @@
 
             <!-- content-->
             <div id="content">
-				<form action="/member/join" method="post" accept-charset="UTF-8">
+				<form action="/member/join" method="post" accept-charset="UTF-8" name="joinForm" onsubmit="return joinValidation()">
                 <!-- ID -->
                 <div>
                     <h3 class="join_title">
@@ -50,7 +50,7 @@
                 <div>
                     <h3 class="join_title"><label for="pswd2">비밀번호 재확인</label></h3>
                     <span class="box int_pass_check">
-                        <input type="password" id="pswd2" class="int" maxlength="20">
+                        <input type="password" id="pswd2" name="pw2" class="int" maxlength="20">
                         <img src="${pageContext.request.contextPath}/resources/main/assets/join/m_icon_check_disable.png" id="pswd2_img1" class="pswdImg">
                     </span>
                     <span class="error_next_box"></span>
@@ -70,9 +70,9 @@
                     <h3 class="join_title"><label for="gender">성별</label></h3>
                     <span class="box gender_code">
                         <select id="gender" name="gender" class="sel">
-                            <option>성별</option>
+                            <option value="성별">성별</option>
                             <option value="male">남자</option>
-                            <option value="femal">여자</option>
+                            <option value="female">여자</option>
                         </select>                            
                     </span>
                     <span class="error_next_box">필수 정보입니다.</span>
@@ -120,7 +120,7 @@
                 <div>
                     <h3 class="join_title"><label for="phoneNo">휴대전화</label></h3>
                     <span class="box int_mobile">
-                        <input type="tel" id="mobile" name="phone" class="int" maxlength="11" placeholder=" - 없이 입력">
+                        <input type="text" id="mobile" name=phone class="int" maxlength="11" placeholder=" - 없이 입력">
                     </span>
                     <span class="error_next_box"></span>    
                 </div>
@@ -128,8 +128,7 @@
 
                 <!-- JOIN BTN-->
                 <div class="btn_area">
-					<!-- <span><b>가입하기</b></span> -->
-                    <input type="submit" id="btnJoin" value="가입하기">
+					<input type="button" id="btnJoin" value="가입하기" onclick="joinValidation()">
                 </div>
                 </form>
             </div> 
