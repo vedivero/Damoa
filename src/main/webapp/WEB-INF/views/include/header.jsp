@@ -25,6 +25,20 @@
         <link rel="stylesheet" href="<c:url value='resources/main/assets/css/responsive.css'/>">
 
         <script src="<c:url value='/resources/main/assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js'/>"></script>
+            <!-- JS includes -->
+
+      <script src='<c:url value="/resources/main/assets/js/vendor/jquery-1.11.2.min.js"/>'></script>
+      <script src='<c:url value="/resources/main/assets/js/vendor/bootstrap.min.js"/>'></script>
+
+      <script src='<c:url value="/resources/main/assets/js/owl.carousel.min.js"/>'></script>
+      <script src='<c:url value="/resources/main/assets/js/jquery.magnific-popup.js"/>'></script>
+      <script src='<c:url value="/resources/main/assets/js/jquery.easing.1.3.js"/>'></script>
+      <script src='<c:url value="/resources/main/assets/css/slick/slick.js"/>'></script>
+      <script src='<c:url value="/resources/main/assets/css/slick/slick.min.js"/>'></script>
+      <script src='<c:url value="/resources/main/assets/js/jquery.collapse.js"/>'></script>
+      <script src='<c:url value="/resources/main/assets/js/bootsnav.js"/>'></script>
+      <script src='<c:url value="resources/main/assets/js/plugins.js"/>'></script>
+      <script src='<c:url value="/resources/main/assets/js/main.js"/>'></script>
 </head>
 <body>
 
