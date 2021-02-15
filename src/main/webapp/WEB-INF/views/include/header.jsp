@@ -104,7 +104,6 @@
                         </button>
                         <a class="navbar-brand" href="/main">
                             <img src="<c:url value='/resources/main/assets/images/logo.png" class="logo" alt=""'/>">
-                            <img src="assets/images/footer-logo.png" class="logo logo-scrolled" alt="">
                         </a>
                     </div>
 					<!--End Header Navigation -->
