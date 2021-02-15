@@ -37,6 +37,7 @@ public class MemberServiceImpl implements MemberService{
 	//회원가입 아이디 중복확인
 	@Override
 	public int idCheck(String id) {
+		
 		return mdao.idCheck(id);
 	}
 

@@ -6,8 +6,17 @@
 <meta charset="UTF-8">
 <title>Damoa : 회원가입</title>
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/main/assets/css/loginForm.css">
-	<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
 	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+	
+    <!-- JS -->
+    <script src="${pageContext.request.contextPath}/resources/main/assets/join/main.js"></script>
+    
+    <!-- 주소API -->
+    <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    
+    <!-- 아이디중복체크  -->
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
 <body>
         <!-- header -->
@@ -16,7 +25,6 @@
             	<img src="${pageContext.request.contextPath}/resources/main/assets/join/logo.png" id="logo">
             </a>
         </div>
-
 
         <!-- wrapper -->
         <div id="wrapper">
@@ -38,6 +46,7 @@
                     <!-- Ajax-템플릿 -->
 <!--                     <span class="step_url"></span> -->
 <!--                     <span class="error_next_box"></span> -->
+            
              <!-- PW1 -->
              <div>
                     <h3 class="join_title"><label for="pswd1">비밀번호</label></h3>
@@ -140,34 +149,39 @@
         </div> 
         <!-- wrapper -->
     
-    <!-- JS -->
-    <script src="${pageContext.request.contextPath}/resources/main/assets/join/main.js"></script>
     
-    <!-- 주소API -->
-    <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-    
-    <script>
-	// 아이디 유효성 검사(1 = 중복 / 0 != 중복)
+	<!-- 아이디 중복 체크 -->
+	<script type="text/javascript">		
 	$('#id').blur(function(){
 		var id = document.joinForm.id.value;
 		$.ajax({
 			url : '${pageContext.request.contextPath}/member/idCheck?id='+id,
 			type : 'get',
-			success : function(data) {
-				if(data == 1){
-					$(".id_check").css({visibility: 'visible', display: 'block', color:'red'}).text("이미 사용중인 아이디입니다.");
+			success : function(data){
+					
+				if (data == 1) {
+						// 1 : 아이디가 중복되는 문구
+						$("#id_check").text("이미 사용중인 아이디입니다.");
+						$("#id_check").css("color", "red");
 				} else {
-					if(d == ""){ 
-						$(".id_check").css({visibility: 'visible', display: 'block', color:'red'}).text("아이디를 입력하세요.");
-					}else if(d.length < 4){
-						$(".id_check").css({visibility: 'visible', display: 'block', color:'red'}).text("아이디를 4자리이상 입력하세요.");
-					}else{
-						$(".id_check").css({visibility: 'visible', display: 'block', color:'blue'}).text("사용 가능한 아이디입니다.");
+						
+					if(id == ""){
+						// 0 : 아이디 길이 / 문자열 검사
+						$("#id_check").text("아이디를 입력하세요.");
+			
+					} else if(id.length < 4){
+						$('#id_check').text('아이디를 4자 이상 입력하세요.');
+						$('#id_check').css('color', 'red');
+						
+					} else {
+						
+						$('#id_check').text("사용 가능한 아이디 입니다.");
+						$('#id_check').css('color', 'red');
 					}
-			    }
-			  }, error : function(){ console.log("아이디 중복확인 실패"); }
+				}
+				}
+			});
 		});
-	});
 	</script>
     </body>
 </html>

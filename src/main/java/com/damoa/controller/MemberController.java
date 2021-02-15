@@ -82,8 +82,8 @@ public class MemberController {
 	
 	//회원가입시 아이디중복확인
 	@RequestMapping(value = "/idCheck", method = RequestMethod.GET)
-	
-	public @ResponseBody int idCheck(@RequestParam("id") String id) throws Exception {
+	@ResponseBody
+	public int idCheck(@RequestParam("id") String id) throws Exception {
 		System.out.println("idCheck id: "+id);
 		int result = service.idCheck(id);
 		

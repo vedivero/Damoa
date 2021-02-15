@@ -15,11 +15,8 @@ import com.damoa.domain.MemberVO;
 @Repository
 public class MemberDAOImpl implements MemberDAO{
 
-	//DB접근을 위한 SqlSession객체
 	@Inject 
 	private SqlSession session;
-
-	//mapper의 위치
 	private static final String namespace = "com.damoa.mappers.memberMapper";
 	
 	@Override
