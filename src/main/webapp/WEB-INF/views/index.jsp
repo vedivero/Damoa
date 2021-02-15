@@ -28,7 +28,7 @@
         </div><!--End off Preloader -->
 
 		<!-- Navigation -->
-		<jsp:include page="./include/navigation.jsp"></jsp:include>
+		<jsp:include page="./include/header.jsp"></jsp:include>
 
 
             <!--Home Sections-->
